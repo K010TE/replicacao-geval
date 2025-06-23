@@ -1,61 +1,79 @@
 
-# 📝 Replicação do G-EVAL: Avaliação de Geração de Linguagem Natural com GPT-4
+# Replicação do G-EVAL: Avaliação de Geração de Linguagem Natural com GPT-4
 
-Este repositório contém a **replicação do experimento descrito no artigo [G-EVAL: NLG Evaluation using GPT-4 with Better Human Alignment](https://arxiv.org/abs/2303.16634)**, com o objetivo de avaliar a capacidade de modelos de linguagem em julgar automaticamente a qualidade de saídas de sistemas de Geração de Linguagem Natural (NLG), com base em critérios como **coerência**, **consistência**, **fluência** e **relevância**.
+Este repositório contém a replicação do artigo **"G-EVAL: NLG Evaluation using GPT-4 with Better Human Alignment"**, com base nos benchmarks fornecidos e adaptado ao ambiente local.
+
+---
 
 ## 📁 Estrutura do Projeto
 
 ```
 .
-├── replicacao.ipynb         # Notebook principal com toda a execução
-├── avaliar_correlacoes.py   # Script para calcular correlações com notas humanas
-├── results/                 # Arquivos .json com saídas do G-EVAL
-├── .env                     # Arquivo com a chave da OpenAI (NÃO subir no GitHub)
-├── requirements.txt         # Dependências do projeto
-└── README.md                # Este arquivo
+├── data/
+│   └── summeval.json                # Dataset de referência (SummEval)
+│
+├── prompts/
+│   └── summeval/
+│       ├── coh_detailed.txt        # Prompt de Coerência
+│       ├── con_detailed.txt        # Prompt de Consistência
+│       ├── flu_detailed.txt        # Prompt de Fluência
+│       └── rel_detailed.txt        # Prompt de Relevância
+│
+├── results/
+│   ├── gpt4_coh_detailed.json      # Resultados de Coerência
+│   ├── gpt4_con_detailed.json      # Resultados de Consistência
+│   ├── gpt4_flu_detailed.json      # Resultados de Fluência
+│   └── gpt4_rel_detailed.json      # Resultados de Relevância
+│
+├── .env                            # Contém sua chave da OpenAI (NÃO subir no GitHub)
+├── .gitignore                      # Ignora arquivos sensíveis e temporários
+├── gpt4_eval.py                    # Script principal para geração de avaliações
+├── meta_eval_summeval.py          # Script de cálculo de correlações com dados do paper
+├── avaliar_correlacoes.py         # Versão adaptada em português para análise local
+├── replicacao.ipynb               # Notebook completo da replicação
+├── LICENSE
+└── README.md
 ```
 
-## ⚙️ Requisitos
+---
 
-Você precisará ter o **Python 3.8 ou superior** instalado. Recomenda-se o uso de um ambiente virtual.
+## 🚀 Como Executar
 
-Instale as dependências com:
+1. **Configure sua chave da OpenAI:**
+
+Crie um arquivo `.env` com o conteúdo:
+
+```
+OPENAI_API_KEY=sua-chave-aqui
+```
+
+2. **Instale as dependências:**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 🔐 Configuração da Chave da OpenAI
-
-Este projeto utiliza a API do GPT-4 via OpenAI. Para manter sua chave segura:
-
-1. Crie um arquivo `.env` na raiz do projeto:
-    ```ini
-    OPENAI_API_KEY=sk-proj-sua-chave-aqui
-    ```
-2. **Nunca suba esse arquivo para o GitHub** (o `.gitignore` já está configurado para ignorá-lo).
-
-## ▶️ Como Executar
-
-A replicação pode ser feita diretamente pelo notebook:
-
-1. Abra o arquivo `replicacao.ipynb`.
-2. Execute as células sequencialmente.
-3. Os resultados de avaliação serão salvos e plotados ao final.
-
-Também é possível rodar a avaliação estatística separadamente:
+3. **Execute o notebook:**
 
 ```bash
+jupyter notebook replicacao.ipynb
+```
+
+4. **Ou rode os scripts manualmente:**
+
+```bash
+python gpt4_eval.py
 python avaliar_correlacoes.py
 ```
 
+---
+
 ## 📊 Resultados
 
-Os resultados obtidos na replicação incluem os coeficientes de correlação entre as notas atribuídas pelo G-EVAL (via GPT-4) e as notas humanas de referência, como **Pearson**, **Spearman** e **Kendall-Tau** para cada critério avaliado.
+Os resultados finais são apresentados como correlações (Pearson, Spearman, Kendall-Tau) entre as avaliações do G-EVAL e os julgamentos humanos para os critérios: **Coerência, Consistência, Fluência e Relevância**.
 
-## 📚 Referência Original
+---
 
-> Liu, X., Zhu, C., Mou, L., & Yang, D. (2023).  
-> **G-EVAL: NLG Evaluation using GPT-4 with Better Human Alignment**.  
-> *arXiv preprint arXiv:2303.16634*.  
-> [https://arxiv.org/abs/2303.16634](https://arxiv.org/abs/2303.16634)
+## 📄 Licença
+
+Este projeto segue a licença do repositório original. Consulte o arquivo `LICENSE` para mais detalhes.

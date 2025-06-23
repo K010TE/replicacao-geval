@@ -1,1 +1,11 @@
+# Python
+__pycache__/
+*.py[cod]
+*.ipynb_checkpoints/
+
+# Dados sensíveis
 .env
+
+# Resultados grandes (se quiser ignorar outputs gerados automaticamente)
+results/*.json
+prompts/summeval/*.txt
