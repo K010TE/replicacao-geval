@@ -1,3 +1,8 @@
+[//]: # (Links importantes)
+
+- 📄 Artigo original: [G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment](https://arxiv.org/abs/2303.16634)
+- 📓 Notebook da replicação: [replicacao.ipynb](https://github.com/K010TE/replicacao-geval/blob/main/replicacao.ipynb)
+- 💻 Repositório original: [nlpyang/geval](https://github.com/nlpyang/geval)
 
 # Replicação do G-EVAL: Avaliação de Geração de Linguagem Natural com GPT-4
 
