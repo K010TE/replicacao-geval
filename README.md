@@ -1,5 +1,7 @@
 [//]: # (Links importantes)
 
+[📝 Artigo de Replicação: Work Replication - G-EVAL (PDF)](./Work%20Replication%20-%20G-EVAL.pdf)
+
 - 📄 Artigo original: [G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment](https://arxiv.org/abs/2303.16634)
 - 📓 Notebook da replicação: [replicacao.ipynb](https://github.com/K010TE/replicacao-geval/blob/main/replicacao.ipynb)
 - 💻 Repositório original: [nlpyang/geval](https://github.com/nlpyang/geval)
